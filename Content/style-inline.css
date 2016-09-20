@@ -1,0 +1,37 @@
+.logo.image-xxs {
+    max-height: 22px;
+}
+
+.nav-bar {
+    height: 55px;
+    max-height: 55px;
+    line-height: 55px;
+}
+
+@media all and (max-width: 990px) {
+    .nav-bar {
+        height: auto;
+        max-height: 55px;
+    }
+    .nav-bar.nav-open {
+        max-height: none;
+    }
+}
+
+.vc_custom_1443022843786 {
+    padding-top: 0px !important;
+    padding-bottom: 0px !important;
+}
+
+.vc_custom_1443023537711 {
+    padding-bottom: 0px !important;
+}
+
+.vc_custom_1443023544076 {
+    padding-bottom: 0px !important;
+}
+
+.vc_custom_1449230494456 {
+    margin-bottom: -150px !important;
+    background-color: #f5f5f5 !important;
+}

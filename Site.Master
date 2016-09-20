@@ -1,0 +1,156 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="pentruex1.SiteMaster" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Proiect DAW</title>
+
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
+                <%--Framework Scripts--%>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Name="bootstrap" />
+                <asp:ScriptReference Name="respond" />
+                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
+                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
+                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
+                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
+                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+                <%--Site Scripts--%>
+                
+
+            </Scripts>
+        </asp:ScriptManager>
+        
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" runat="server" href="~/">Application name</a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a runat="server" href="~/">Add</a></li>
+                        <li><a runat="server" href="~/About">View</a></li>
+                        <li><a runat="server" href="~/Contact">Edit</a></li>
+                        <li><a runat="server" href="~/delete">Delete</a></li>
+                    </ul>
+                    <asp:LoginView runat="server" ViewStateMode="Disabled">
+                        <AnonymousTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Register">Register</a></li>
+                                <li><a runat="server" href="~/Account/Login">Log in</a></li>
+                            </ul>
+                        </AnonymousTemplate>
+                        <LoggedInTemplate>
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a runat="server" href="~/Account/Manage" title="Manage your account">Hello, <%: Context.User.Identity.GetUserName()  %> !</a></li>
+                                <li>
+                                    <asp:LoginStatus runat="server" LogoutAction="Redirect" LogoutText="Log off" LogoutPageUrl="~/" OnLoggingOut="Unnamed_LoggingOut" />
+                                </li>
+                            </ul>
+                        </LoggedInTemplate>
+                    </asp:LoginView>
+                </div>
+            </div>
+        </div>
+       
+        <div class="main-container">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+           
+            <div class="vc_row-full-width"></div>
+        <section data-sr="enter bottom move 20px over .5s and scale 0% and wait 0s">
+            <div class="container">
+
+                <div class="row mb64 mt0 mb-xs-32">
+                    <div class="col-sm-12 text-center">
+                        <div class="bg-secondary pt64 pb64">
+                            <h4 class="uppercase mb16">Newsletter</h4>
+                            <p>Studio Updates &amp; New Timetables Weekly</p>
+                            <form id='foo' class="wpcf7-form">
+                                <div class="form-newsletter">
+                                    <span class="wpcf7-form-control-wrap your-name">
+                                        <input type="email" id='email' name='email' value="" size="40" class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Your Email" />
+                                    </span>
+                                    <div id='success'></div>
+                                    <input type='submit' id="butonul-submit" value="Sign Up" class="wpcf7-form-control wpcf7-submit">
+                                </div>
+                            </form>
+
+                            <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+                            <!-- Custom Theme JavaScript -->
+                            <script src='google-sheet.js'></script>
+                        </div>
+                    </div>
+                </div>
+                <!--end of row-->
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <ul class="list-inline social-list wide">
+
+                            <li>
+                                <a rel="nofollow" href="#" target="_blank">
+                                    <i class="icon icon-sm ti-twitter"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a rel="nofollow" href="" target="_blank">
+                                    <i class="icon icon-sm ti-facebook"></i>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a rel="nofollow" href="#" target="_blank">
+                                    <i class="icon icon-sm ti-instagram"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--end of row-->
+            </div>
+        </section>
+
+
+
+        <footer class="footer-2 bg-dark pt16 pb16 text-center">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <span class="fade-1-4">
+				© Copyright 2016 AdI, All Rights Reserved.			</span>
+            </div>
+        </footer>
+        </div>
+    </form>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/jquery.form.min.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/scripts.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/bootstrap.min.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/plugins.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/scripts2.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/wp-embed.min.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/js_composer_front.min.js") %>'></script>
+    <script type='text/javascript' src='<%= ResolveUrl("~/Scripts/js/skrollr.min.js") %>'></script>
+</body>
+</html>
